@@ -2,6 +2,8 @@ from spacy.language import Language
 from spacy.matcher import Matcher
 from spacy.tokens import Token, Span, Doc
 
+from .pattern import ent_pat, pat
+
 
 @Language.factory("resumext",
                   default_config={
@@ -10,11 +12,13 @@ from spacy.tokens import Token, Span, Doc
                   },
                   )
 class ResumeExtractor:
+    pattern = pat()
+    ent_pattern = ent_pat()
+
     def __init__(self,
                  nlp: Language,
                  name: str,
-                 ent_types: list,
-                 pattern: dict):
+                 ent_types: list):
         """
 
         :param nlp:
@@ -25,13 +29,14 @@ class ResumeExtractor:
         self.nlp = nlp
         self.pattern = pattern
         self.ent_types = ent_types
+        self.ent_pattern = ent_pattern
         self.matcher = Matcher(nlp.vocab)
 
-        for k, v in self.pattern.items():
+        for k, v in self.ent_pattern.items():
             patterns = v['patterns']
             self.matcher.add("_" + str(k), patterns)
 
-    def resumacy(self, doc):
+    def res(self, doc):
         """
 
         :param doc:
@@ -93,4 +98,4 @@ class ResumeExtractor:
         return filtered_matches
 
     def __call__(self, doc):
-        return self.resumacy(doc=doc)
+        return self.res(doc=doc)
