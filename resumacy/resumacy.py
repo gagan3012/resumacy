@@ -6,6 +6,12 @@ from spacy.tokens import Token, Span, Doc
 @Language.factory("resumext")
 class ResumeExtractor:
     def __init__(self, nlp: Language, pattern: dict):
+        """
+
+        :param nlp:
+        :param pattern:
+        """
+
         Span.set_extension("resume_extract", default=[], force=True)
         self.nlp = nlp
         self.pattern = pattern
@@ -16,4 +22,19 @@ class ResumeExtractor:
             self.matcher.add("_" + str(k), patterns)
 
     def __call__(self,doc):
-        
+        """
+
+        :param doc:
+        :return:
+        """
+        match = self.matcher(doc)
+        for e in doc.ents:
+            if e.label_ in self.pattern.keys():
+                e._.resume_extract = self.get_match(
+                    doc,
+                    e,
+                    match,
+                    self.pattern[e.label_]["n"],
+                    self.pattern[e.label_]["direction"]
+                )
+        return doc
