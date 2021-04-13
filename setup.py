@@ -18,7 +18,7 @@ setuptools.setup(
     version="1.0.0",
     author="Gagan Bhatia",
     author_email="gbhatia880@gmail.com",
-    description="Tags custom component for Streamlit",
+    description="TBD",
     long_description=readme(),
     long_description_content_type="text/markdown",
     url="https://github.com/gagan3012/resumacy",
@@ -37,5 +37,4 @@ setuptools.setup(
     install_requires=[
         "spacy>=3.0.1,<3.1.0",
     ]
-
 )
