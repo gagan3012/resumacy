@@ -31,7 +31,7 @@ class ResumeExtractor:
             patterns = v['patterns']
             self.matcher.add("_" + str(k), patterns)
 
-    def __call__(self, doc):
+    def resumacy(self, doc):
         """
 
         :param doc:
@@ -45,8 +45,8 @@ class ResumeExtractor:
                     doc,
                     e,
                     match,
-                    self.pattern[e.label_]["n"],
-                    self.pattern[e.label_]["direction"]
+                    self.pattern[e.label_]["direction"],
+                    self.pattern[e.label_]["n"]
                 )
         return doc
 
@@ -54,8 +54,8 @@ class ResumeExtractor:
                   doc,
                   entity,
                   match,
-                  n,
-                  direction):
+                  direction,
+                  n=1):
 
         if type(n) == int:
             if direction == "left":
@@ -91,3 +91,6 @@ class ResumeExtractor:
                and (start <= end_i)
         ]
         return filtered_matches
+
+    def __call__(self, doc):
+        return self.resumacy(doc=doc)
