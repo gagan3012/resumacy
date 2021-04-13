@@ -24,6 +24,7 @@ setuptools.setup(
     url="https://github.com/gagan3012/resumacy",
     packages=setuptools.find_packages(),
     include_package_data=True,
+    license="MIT",
     classifiers=[
         'Intended Audience :: Science/Research',
         'Development Status :: 4 - Beta',
@@ -34,6 +35,7 @@ setuptools.setup(
         'Topic :: Scientific/Engineering :: Artificial Intelligence'],
     python_requires=">=3.6",
     install_requires=[
-        "streamlit >= 0.63",
+        "spacy>=3.0.1,<3.1.0",
     ]
+
 )
