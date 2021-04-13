@@ -3,9 +3,18 @@ from spacy.matcher import Matcher
 from spacy.tokens import Token, Span, Doc
 
 
-@Language.factory("resumext")
+@Language.factory("resumext",
+                  default_config={
+                      "ent_types": list(),
+                      "extension_name": "resumext",
+                  },
+                  )
 class ResumeExtractor:
-    def __init__(self, nlp: Language, pattern: dict):
+    def __init__(self,
+                 nlp: Language,
+                 name: str,
+                 ent_types: list,
+                 pattern: dict):
         """
 
         :param nlp:
@@ -21,7 +30,7 @@ class ResumeExtractor:
             patterns = v['patterns']
             self.matcher.add("_" + str(k), patterns)
 
-    def __call__(self,doc):
+    def __call__(self, doc):
         """
 
         :param doc:
@@ -38,3 +47,11 @@ class ResumeExtractor:
                     self.pattern[e.label_]["direction"]
                 )
         return doc
+
+    def get_match(self,doc,entity,match,n,direction):
+
+        if type(n) == int:
+            if direction  == 'left':
+
+
+
