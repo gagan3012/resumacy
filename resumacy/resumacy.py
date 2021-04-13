@@ -24,6 +24,7 @@ class ResumeExtractor:
         Span.set_extension("resume_extract", default=[], force=True)
         self.nlp = nlp
         self.pattern = pattern
+        self.ent_types = ent_types
         self.matcher = Matcher(nlp.vocab)
 
         for k, v in self.pattern.items():
@@ -37,8 +38,9 @@ class ResumeExtractor:
         :return:
         """
         match = self.matcher(doc)
+        common_elements = set(self.pattern.keys()).intersection(self.ent_types)
         for e in doc.ents:
-            if e.label_ in self.pattern.keys():
+            if e.label_ in common_elements:
                 e._.resume_extract = self.get_match(
                     doc,
                     e,
@@ -48,10 +50,44 @@ class ResumeExtractor:
                 )
         return doc
 
-    def get_match(self,doc,entity,match,n,direction):
+    def get_match(self,
+                  doc,
+                  entity,
+                  match,
+                  n,
+                  direction):
 
         if type(n) == int:
-            if direction  == 'left':
+            if direction == "left":
+                end_i = entity.start
+                start_i = max(entity.start - n, 0)
+            else:
+                end_i = min(entity.end + (n - 1), len(doc))
+                if direction == "right":
+                    start_i = entity.end
+                if direction == "both":
+                    start_i = max(entity.start - n, 0)
 
+        elif n == "sent":
+            if direction == "right":
+                start_i = entity.end
+                end_i = entity.sent.end - 1
+            if direction == "both":
+                start_i = entity.sent.start
+                end_i = entity.sent.end - 1
+            if direction == "left":
+                start_i = entity.sent.start
+                end_i = entity.start
 
-
+        else:
+            raise ValueError(
+                "If using pattern_match, expecting n to be an int or equal to 'sent'"
+            )
+        filtered_matches = [
+            doc[start:end].text
+            for match_id, start, end in match
+            if (self.nlp.vocab.strings[match_id] == "_" + entity.label_)
+               and (start >= start_i)
+               and (start <= end_i)
+        ]
+        return filtered_matches
