@@ -4,5 +4,5 @@ def pat():
 
 
 def ent_pat():
-    ent_pattern = {[k]}
+    ent_pattern = {[]}
     return ent_pattern
