@@ -61,6 +61,14 @@ class ResumeExtractor:
                   match,
                   direction,
                   n=1):
+        """
+        :param doc:
+        :param entity:
+        :param match:
+        :param direction:
+        :param n:
+        :return:
+        """
 
         if type(n) == int:
             if direction == "left":
