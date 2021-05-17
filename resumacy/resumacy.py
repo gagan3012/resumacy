@@ -97,3 +97,4 @@ class ResumeExtractor:
                 "If using pattern_match, expecting n to be an int or equal to 'sent'"
             )
         filtered_matches = [
+            doc[start:end].text
