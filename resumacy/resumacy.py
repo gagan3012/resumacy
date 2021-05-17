@@ -51,4 +51,8 @@ class ResumeExtractor:
                     e,
                     match,
                     self.pattern[e.label_]["direction"],
+                    self.pattern[e.label_]["n"]
+                )
+        return doc
+
     def get_match(self,
