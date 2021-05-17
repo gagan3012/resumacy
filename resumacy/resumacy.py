@@ -18,3 +18,9 @@ class ResumeExtractor:
     def __init__(self,
                  nlp: Language,
                  name: str,
+                 ent_types: list):
+        """
+
+        :param nlp:
+        :param pattern:
+        """
