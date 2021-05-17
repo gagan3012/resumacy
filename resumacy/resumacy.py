@@ -98,3 +98,4 @@ class ResumeExtractor:
             )
         filtered_matches = [
             doc[start:end].text
+            for match_id, start, end in match
