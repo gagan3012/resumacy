@@ -59,3 +59,4 @@ class ResumeExtractor:
                   doc,
                   entity,
                   match,
+                  direction,
