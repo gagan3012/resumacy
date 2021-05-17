@@ -99,3 +99,4 @@ class ResumeExtractor:
         filtered_matches = [
             doc[start:end].text
             for match_id, start, end in match
+            if (self.nlp.vocab.strings[match_id] == "_" + entity.label_)
