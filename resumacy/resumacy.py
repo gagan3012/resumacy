@@ -93,3 +93,4 @@ class ResumeExtractor:
                 end_i = entity.start
 
         else:
+            raise ValueError(
