@@ -6,3 +6,6 @@ from .pattern import ent_pat, pat
 
 
 @Language.factory("resumext",
+                  default_config={
+                      "ent_types": list(),
+                      "extension_name": "resumext",
