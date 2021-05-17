@@ -30,3 +30,7 @@ class ResumeExtractor:
         self.pattern = pattern
         self.ent_types = ent_types
         self.ent_pattern = ent_pattern
+        self.matcher = Matcher(nlp.vocab)
+
+        for k, v in self.ent_pattern.items():
+            patterns = v['patterns']
