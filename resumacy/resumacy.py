@@ -103,3 +103,4 @@ class ResumeExtractor:
                and (start >= start_i)
                and (start <= end_i)
         ]
+        return filtered_matches
