@@ -68,3 +68,4 @@ class ResumeExtractor:
         :param direction:
         :param n:
         :return:
+
