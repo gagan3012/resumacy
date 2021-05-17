@@ -24,3 +24,9 @@ class ResumeExtractor:
         :param nlp:
         :param pattern:
         """
+
+        Span.set_extension("resume_extract", default=[], force=True)
+        self.nlp = nlp
+        self.pattern = pattern
+        self.ent_types = ent_types
+        self.ent_pattern = ent_pattern
