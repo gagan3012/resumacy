@@ -9,3 +9,7 @@ from .pattern import ent_pat, pat
                   default_config={
                       "ent_types": list(),
                       "extension_name": "resumext",
+                  },
+                  )
+class ResumeExtractor:
+    pattern = pat()
