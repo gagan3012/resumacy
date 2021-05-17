@@ -70,3 +70,4 @@ class ResumeExtractor:
         :return:
         """
 
+        if type(n) == int:
