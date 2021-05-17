@@ -105,4 +105,5 @@ class ResumeExtractor:
         ]
         return filtered_matches
 
+    def __call__(self, doc):
         return self.res(doc=doc)
