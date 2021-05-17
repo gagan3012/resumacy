@@ -86,3 +86,5 @@ class ResumeExtractor:
                 start_i = entity.end
                 end_i = entity.sent.end - 1
             if direction == "both":
+                start_i = entity.sent.start
+                end_i = entity.sent.end - 1
