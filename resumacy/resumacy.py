@@ -79,3 +79,6 @@ class ResumeExtractor:
                 if direction == "right":
                     start_i = entity.end
                 if direction == "both":
+                    start_i = max(entity.start - n, 0)
+
+        elif n == "sent":
