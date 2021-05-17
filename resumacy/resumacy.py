@@ -42,3 +42,6 @@ class ResumeExtractor:
         :param doc:
         :return:
         """
+        match = self.matcher(doc)
+        common_elements = set(self.pattern.keys()).intersection(self.ent_types)
+        for e in doc.ents:
