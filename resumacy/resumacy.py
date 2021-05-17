@@ -94,3 +94,4 @@ class ResumeExtractor:
 
         else:
             raise ValueError(
+                "If using pattern_match, expecting n to be an int or equal to 'sent'"
