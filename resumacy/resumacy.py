@@ -62,3 +62,4 @@ class ResumeExtractor:
                   direction,
                   n=1):
         """
+        :param doc:
