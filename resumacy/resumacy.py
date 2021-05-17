@@ -60,3 +60,4 @@ class ResumeExtractor:
                   entity,
                   match,
                   direction,
+                  n=1):
