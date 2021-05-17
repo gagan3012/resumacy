@@ -48,3 +48,7 @@ class ResumeExtractor:
             if e.label_ in common_elements:
                 e._.resume_extract = self.get_match(
                     doc,
+                    e,
+                    match,
+                    self.pattern[e.label_]["direction"],
+    def get_match(self,
