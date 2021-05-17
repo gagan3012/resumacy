@@ -13,3 +13,8 @@ from .pattern import ent_pat, pat
                   )
 class ResumeExtractor:
     pattern = pat()
+    ent_pattern = ent_pat()
+
+    def __init__(self,
+                 nlp: Language,
+                 name: str,
