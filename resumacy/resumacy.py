@@ -61,3 +61,4 @@ class ResumeExtractor:
                   match,
                   direction,
                   n=1):
+        """
