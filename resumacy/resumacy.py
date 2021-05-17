@@ -34,3 +34,6 @@ class ResumeExtractor:
 
         for k, v in self.ent_pattern.items():
             patterns = v['patterns']
+            self.matcher.add("_" + str(k), patterns)
+
+    def res(self, doc):
