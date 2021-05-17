@@ -71,3 +71,6 @@ class ResumeExtractor:
         """
 
         if type(n) == int:
+            if direction == "left":
+                end_i = entity.start
+                start_i = max(entity.start - n, 0)
