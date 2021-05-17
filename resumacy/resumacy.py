@@ -92,3 +92,4 @@ class ResumeExtractor:
                 start_i = entity.sent.start
                 end_i = entity.start
 
+        else:
