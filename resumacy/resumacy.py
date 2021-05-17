@@ -37,3 +37,8 @@ class ResumeExtractor:
             self.matcher.add("_" + str(k), patterns)
 
     def res(self, doc):
+        """
+
+        :param doc:
+        :return:
+        """
