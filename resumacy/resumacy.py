@@ -64,3 +64,6 @@ class ResumeExtractor:
         """
         :param doc:
         :param entity:
+        :param match:
+        :param direction:
+        :param n:
