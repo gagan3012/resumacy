@@ -77,3 +77,5 @@ class ResumeExtractor:
             else:
                 end_i = min(entity.end + (n - 1), len(doc))
                 if direction == "right":
+                    start_i = entity.end
+                if direction == "both":
