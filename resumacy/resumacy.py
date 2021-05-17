@@ -4,3 +4,5 @@ from spacy.tokens import Token, Span, Doc
 
 from .pattern import ent_pat, pat
 
+
+@Language.factory("resumext",
