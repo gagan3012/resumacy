@@ -45,3 +45,6 @@ class ResumeExtractor:
         match = self.matcher(doc)
         common_elements = set(self.pattern.keys()).intersection(self.ent_types)
         for e in doc.ents:
+            if e.label_ in common_elements:
+                e._.resume_extract = self.get_match(
+                    doc,
