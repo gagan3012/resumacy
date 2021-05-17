@@ -56,3 +56,6 @@ class ResumeExtractor:
         return doc
 
     def get_match(self,
+                  doc,
+                  entity,
+                  match,
