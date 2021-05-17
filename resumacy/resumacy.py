@@ -105,3 +105,4 @@ class ResumeExtractor:
         ]
         return filtered_matches
 
+        return self.res(doc=doc)
