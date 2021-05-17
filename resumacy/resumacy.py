@@ -63,3 +63,4 @@ class ResumeExtractor:
                   n=1):
         """
         :param doc:
+        :param entity:
