@@ -101,3 +101,4 @@ class ResumeExtractor:
             for match_id, start, end in match
             if (self.nlp.vocab.strings[match_id] == "_" + entity.label_)
                and (start >= start_i)
+        ]
